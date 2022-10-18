@@ -1,0 +1,34 @@
+def solution(p):
+    answer = ''
+    # 1.
+    if p == "":
+        return p
+    # 2.
+    a = 0 
+    for i in range(len(p)):
+        if p[i] == "(":
+            a += 1
+        else: 
+            a -= 1
+        
+        if a == 0 :
+            u = p[0:i+1]
+            v = p[i+1:len(p)]
+            break
+    # 3.
+    if u[0] == "(":
+        u_ = solution(v)
+        u += u_
+    # 4.
+    else:
+        v = '(' + solution(v) +')'
+        u = u[1:-1]
+        w = ''
+        for i in u:
+            if i == '(':
+                w += ')'
+            else:
+                w += '('
+        answer = v + w
+        return answer
+    return u
