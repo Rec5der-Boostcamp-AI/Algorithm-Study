@@ -1,0 +1,31 @@
+n = int(input())
+m = int(input())
+array = list(map(int, input().split()))
+
+array.sort()
+
+if n%2 == 0 :
+    num = n//2
+else:
+    num = n//2+1
+
+answer = 0
+def ans(n,m,array):
+    global answer
+    for i in range(n-1):
+        for j in range(n-1, i,-1):
+            if array[i]+ array[j]<m:
+                break
+            elif array[i] + array[j]>m:
+                pass
+            else:
+                if j == i+1:
+                    answer +=1
+                    return
+                answer +=1
+                break
+    return
+ans(n,m,array)
+print(answer)
+
+#pypy3 로 성공 ㅋ
