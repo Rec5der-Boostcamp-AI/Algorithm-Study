@@ -11,5 +11,5 @@ def solution(k, dungeons):
                 n +=1
             else:
                 result = max(result, n)
-
+        result = max(result,n)
     return result
