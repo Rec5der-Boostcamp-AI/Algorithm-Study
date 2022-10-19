@@ -39,7 +39,17 @@ def solution(p):
 
     
     def check_correct(s):
-        return
+        stack = [s[0]]
+        for char in s[1:]:
+            if not stack:
+                stack.append(char)
+            elif stack[-1] == ")":
+                return False
+            elif char == '(':
+                stack.append(char)
+            else:
+                stack.pop()
+        return True
 
     
     return get_correct(p)
