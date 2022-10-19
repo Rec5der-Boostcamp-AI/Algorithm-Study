@@ -4,7 +4,6 @@ def solution(p):
             return ''
         
         u, v = get_uv(s)
-
         if check_correct(u):
             return u + get_correct(v)
         return '(' + get_correct(v) + ')' + reverse_u(u[1:-1])
@@ -27,14 +26,16 @@ def solution(p):
                 break
 
         return s[:i+1], s[i+1:]
-
-
-    def recursive_v(s):
-        return
     
 
     def reverse_u(s):
-        return
+        rev = ''
+        for char in s:
+            if char == '(':
+                rev += ')'
+            else:
+                rev += '('
+        return rev
 
     
     def check_correct(s):
